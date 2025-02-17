@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1.0">
+  <zoom_level>11</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1265</x>
+      <y>638</y>
+      <w>330</w>
+      <h>506</h>
+    </coordinates>
+    <panel_attributes>BackGround
+--
+-bgImage = null: BufferedImage
+-sort: int
+-flag: boolean
+-gan = null: BufferedImage
+-tower = null: BufferedImage
+-isReach = false: boolean
+-isBase = false: boolean
+-start = null: BufferedImage
+-enemyList = new ArrayList(): List&lt;Enemy&gt;
+-obstacleList = new ArrayList(): List&lt;Obstacle&gt;
+--
++BackGround(): ctor
++BackGround(int sort, boolean flag): ctor
++createMoney(int x, int y, int type): void
++getBgImage(): BufferedImage
++getSort(): int
++isFlag(): boolean
++getObstacleList(): List&lt;Obstacle&gt;
++getGan(): BufferedImage
++getTower(): BufferedImage
++isReach(): boolean
++setReach(boolean reach): void
++isBase(): boolean
++setBase(boolean base): void
++getEnemyList(): List&lt;Enemy&gt;
++getStart(): BufferedImage</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1045</x>
+      <y>121</y>
+      <w>660</w>
+      <h>396</h>
+    </coordinates>
+    <panel_attributes>Enemy
+--
+-x: int
+-y: int
+-type: int
+-face_tc = true: boolean
+-show: BufferedImage
+-bg: BackGround
+-max_up = 0: int
+-max_down = 0: int
+-thread = new Thread(this): Thread
+-image_type = 0: int
+--
++Enemy(int x, int y, boolean face_tc, int type, BackGround bg): ctor
++Enemy(int x, int y, boolean face_tc, int type, int max_up, int max_down, BackGround bg): ctor
++Enemy(int x, int y, int type, BackGround bg): ctor
++death(): void
++getType(): int
++getShow(): BufferedImage
++getX(): int
++getY(): int
++run(): void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>209</x>
+      <y>429</y>
+      <w>352</w>
+      <h>726</h>
+    </coordinates>
+    <panel_attributes>Mario
+--
+-x: int
+-y: int
+-status: String
+-show = null: BufferedImage
+-backGround = new BackGround(): BackGround
+-thread = null: Thread
+-index: int
+-xSpeed: int
+-ySpeed: int
+-upTime = 0: int
+-isOK: boolean
+-isDeath = false: boolean
+-score = 0: int
+-gold = 0: int
+--
++Mario(): ctor
++Mario(int x, int y): ctor
++getScore(): int
++getGold(): int
++death(): void
++isDeath(): boolean
++isOK(): boolean
++jump(): void
++fall(): void
++leftMove(): void
++rightMove(): void
++leftStop(): void
++rightStop(): void
++getX(): int
++setX(int x): void
++getY(): int
++setY(int y): void
++getShow(): BufferedImage
++setShow(BufferedImage show): void
++setBackGround(BackGround backGround): void
++getStatus(): String
++getBackGround(): BackGround
++getThread(): Thread
++run(): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>858</x>
+      <y>858</y>
+      <w>352</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>Music
+--
+--
++ Music(int type):
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>693</x>
+      <y>429</y>
+      <w>319</w>
+      <h>352</h>
+    </coordinates>
+    <panel_attributes>MyFrame
+--
+-allBg = new ArrayList(): List&lt;BackGround&gt;
+-nowBg = new BackGround(): BackGround
+-offScreenImage = null: Image
+-mario = new Mario(): Mario
+-thread = new Thread(this): Thread
++START = 0: int
++RUNNING = 1: int
+-state = START: int
+--
++MyFrame(): ctor
+-action(): void
++paint(Graphics g): void
++main(String[] args): void
++keyTyped(KeyEvent e): void
+/+keyPressed(KeyEvent e): void/
+/+keyReleased(KeyEvent e): void/
+/+run(): void/
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>825</x>
+      <y>979</y>
+      <w>374</w>
+      <h>253</h>
+    </coordinates>
+    <panel_attributes>Obstacle
+--
+-x: int
+-y: int
+-type: int
+-show = null: BufferedImage
+-bg = null: BackGround
+-thread = new Thread(this): Thread
+--
++Obstacle(int x, int y, int type, BackGround bg): ctor
++getX(): int
++getY(): int
++getType(): int
++getShow(): BufferedImage
++run(): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>209</x>
+      <y>11</y>
+      <w>429</w>
+      <h>385</h>
+    </coordinates>
+    <panel_attributes>StaticValue
+--
++bg = null: BufferedImage
++bg2 = null: BufferedImage
++jump_L = null: BufferedImage
++jump_R = null: BufferedImage
++stand_L = null: BufferedImage
++stand_R = null: BufferedImage
++tower = null: BufferedImage
++gan = null: BufferedImage
++gold1 = null: BufferedImage
++obstacle = new ArrayList(): List&lt;BufferedImage&gt;
++run_L = new ArrayList(): List&lt;BufferedImage&gt;
++run_R = new ArrayList(): List&lt;BufferedImage&gt;
++mogu = new ArrayList(): List&lt;BufferedImage&gt;
++flower = new ArrayList(): List&lt;BufferedImage&gt;
++turtle = new ArrayList(): List&lt;BufferedImage&gt;
++path = System.getProperty("user.dir") + "/src/imgs/": String
++start = null: BufferedImage
+--
++init(): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>979</x>
+      <y>770</y>
+      <w>33</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;..</panel_attributes>
+    <additional_attributes>10.0;80.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1001</x>
+      <y>572</y>
+      <w>440</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;..</panel_attributes>
+    <additional_attributes>380.0;60.0;380.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>550</x>
+      <y>946</y>
+      <w>737</w>
+      <h>154</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;..</panel_attributes>
+    <additional_attributes>650.0;10.0;130.0;10.0;130.0;120.0;10.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>627</x>
+      <y>363</y>
+      <w>187</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;150.0;10.0;150.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>748</x>
+      <y>770</y>
+      <w>99</w>
+      <h>407</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>70.0;350.0;10.0;350.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>550</x>
+      <y>649</y>
+      <w>165</w>
+      <h>407</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;350.0;60.0;350.0;60.0;10.0;130.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>880</x>
+      <y>330</y>
+      <w>187</w>
+      <h>121</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>150.0;10.0;10.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+</diagram>
